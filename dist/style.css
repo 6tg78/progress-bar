@@ -5,10 +5,6 @@
     --line-border-empty: #6daeb4;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 .bg {
     background: url("https://images.unsplash.com/photo-1538032103457-2d54dc211025?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80")
         no-repeat center center/cover;
