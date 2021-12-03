@@ -8,6 +8,7 @@ let currentActive = 1
 //loading text variables
 const textLoader = document.querySelector('.loading-text')
 const bg = document.querySelector('.bg')
+const blurContainer = document.querySelector('.blurry-container')
 let load = 0
 let int = setInterval(blurring,30)
 
@@ -21,11 +22,13 @@ function blurring(){
     if(load >99)
     {
         clearInterval(int)
+        blurContainer.remove()
     }
 
     textLoader.innerText = `${load}%`
     textLoader.style.opacity = scale(load, 0, 100, 1, 0)
     bg.style.filter = `blur(${scale(load, 0,100, 15,0)})px`
+
 }
 
 
