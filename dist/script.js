@@ -1,9 +1,34 @@
+//progress box variables
 const progress = document.getElementById('progress')
 const prev = document.getElementById('prev')
 const next = document.getElementById('next')
 const boxes = document.querySelectorAll('.box')
-
 let currentActive = 1
+
+//loading text variables
+const textLoader = document.querySelector('.loading-text')
+const bg = document.querySelector('.bg')
+let load = 0
+let int = setInterval(blurring,30)
+
+const scale = (num, in_min, in_max, out_min, out_max)=>{
+    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+function blurring(){
+    load++
+
+    if(load >99)
+    {
+        clearInterval(int)
+    }
+
+    textLoader.innerText = `${load}%`
+    textLoader.style.opacity = scale(load, 0, 100, 1, 0)
+    bg.style.filter = `blur(${scale(load, 0,100, 15,0)})px`
+}
+
+
 
 next.addEventListener('click', () => {
     currentActive++
@@ -52,3 +77,4 @@ function update(){
         next.disabled = false;
     }
 }
+
